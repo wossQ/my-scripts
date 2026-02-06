@@ -1,0 +1,39 @@
+# OneDrive Business 定制规则（租户：onesiu-my.sharepoint.com）
++rules:
+  # 🔐 核心认证端点（登录必需，优先级最高）
+  - DOMAIN-SUFFIX,login.microsoftonline.com,DIRECT
+  - DOMAIN-SUFFIX,login.live.com,DIRECT
+  - DOMAIN-SUFFIX,login.microsoft.com,DIRECT
+  - DOMAIN-SUFFIX,msauth.net,DIRECT
+  - DOMAIN-SUFFIX,msauthimages.net,DIRECT
+  - DOMAIN-SUFFIX,msftauth.net,DIRECT
+  - DOMAIN-SUFFIX,accesscontrol.windows.net,DIRECT
+
+  # 🏢 你的企业租户专属域名（关键！已替换）
+  - DOMAIN-SUFFIX,onesiu-my.sharepoint.com,DIRECT
+  - DOMAIN-SUFFIX,onesiu-my.onmicrosoft.com,DIRECT  # 若企业用此域名，保留；无则删除
+
+  # 📂 OneDrive/SharePoint 核心服务（通用+商业）
+  - DOMAIN-SUFFIX,onedrive.com,DIRECT
+  - DOMAIN-SUFFIX,sharepoint.com,DIRECT
+  - DOMAIN-SUFFIX,office.com,DIRECT
+  - DOMAIN-SUFFIX,microsoft.com,DIRECT
+  - DOMAIN-SUFFIX,cloud.microsoft,DIRECT
+  - DOMAIN-SUFFIX,graph.microsoft.com,DIRECT
+  - DOMAIN-SUFFIX,api.onedrive.com,DIRECT
+  - DOMAIN-SUFFIX,oneclient.sfx.ms,DIRECT
+  - DOMAIN-SUFFIX,akamaihd.net,DIRECT  # 微软CDN，解决登录界面加载慢
+
+  # 📡 微软官方IP段（覆盖全球数据中心，确保直连）
+  - IP-CIDR,13.107.42.0/24,DIRECT
+  - IP-CIDR,52.109.0.0/16,DIRECT
+  - IP-CIDR,52.112.0.0/14,DIRECT
+  - IP-CIDR,52.120.0.0/14,DIRECT
+  - IP-CIDR,52.239.192.0/18,DIRECT
+  - IP-CIDR,40.90.141.0/24,DIRECT
+  - IP-CIDR,40.104.0.0/15,DIRECT
+
+  # 🖥️ 进程级强制直连（彻底隔离代理）
+  - PROCESS-NAME,onedrive.exe,DIRECT
+  - PROCESS-NAME,OneDriveStandaloneUpdater.exe,DIRECT
+  - PROCESS-NAME,Microsoft.SharePoint.exe,DIRECT

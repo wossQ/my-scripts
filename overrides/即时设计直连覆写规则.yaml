@@ -1,0 +1,17 @@
+# 即时设计(js.design)代理覆写规则：强制所有相关域名直连
++rules:
+  # 核心主域名（含所有子域名）
+  - DOMAIN-SUFFIX,js.design,DIRECT
+  - DOMAIN-SUFFIX,jsai.cc,DIRECT
+  # 精准匹配关键子域名（避免遗漏核心服务）
+  - DOMAIN,www.js.design,DIRECT
+  - DOMAIN,app.js.design,DIRECT
+  - DOMAIN,api.js.design,DIRECT
+  - DOMAIN,static.js.design,DIRECT
+  - DOMAIN,assets.js.design,DIRECT
+  - DOMAIN,account.js.design,DIRECT
+  # 关键词匹配（覆盖含"jsdesign"或"jishejishi"的隐藏域名）
+  - DOMAIN-KEYWORD,jsdesign,DIRECT
+  - DOMAIN-KEYWORD,jishejishi,DIRECT
+  # 兜底国内IP直连（可选，优化整体国内访问体验）
+  - GEOIP,CN,DIRECT

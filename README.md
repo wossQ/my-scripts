@@ -1,6 +1,7 @@
 # 个人配置文件合集
 自用工具配置、脚本、代理规则的统一存储仓库，方便多设备同步与备份。
 
+```text
 personal-configs/
 ├── README.md               # 项目说明文档（自动生成）
 ├── .gitignore              # 忽略不需要上传的文件
@@ -13,6 +14,7 @@ personal-configs/
 └── other-configs/          # 其他工具配置（软件配置、环境变量等）
     ├── vscode-settings.json
     └── other-rules.yaml
+```
 
 ## 目录说明
 ### 1. overrides
